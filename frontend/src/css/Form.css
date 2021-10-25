@@ -1,0 +1,26 @@
+.phoneTake {
+  border-radius: 5px;
+  width: 30%;
+}
+.phoneBuy {
+  border-radius: 5px;
+  width: 30%;
+}
+.carNumber {
+  border-radius: 5px;
+  width: 30%;
+}
+.selectCustomer {
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  width: 40%;
+}
+.productName {
+  border-radius: 5px;
+  width: 30%;
+}
+.status {
+  border-radius: 5px;
+  width: 30% !important;
+}

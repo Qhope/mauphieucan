@@ -1,0 +1,8 @@
+.addCustomer {
+  display: flex;
+  flex-direction: row;
+}
+.action {
+  display: flex;
+  justify-content: row;
+}
