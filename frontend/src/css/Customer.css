@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:400,700,500,600|Source+Sans+Pro:600");
 .addCustomer {
   display: flex;
   flex-direction: row;
@@ -5,4 +6,21 @@
 .action {
   display: flex;
   justify-content: row;
+}
+.addCustomer {
+  display: flex;
+  justify-content: flex-end;
+}
+.addButton {
+  border: 2px solid #88e0ef;
+  background-color: #ffffffff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  min-width: 90px;
+  padding: 0 12px;
+  margin-bottom: 1em;
+  cursor: pointer;
 }

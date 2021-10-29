@@ -1,26 +1,63 @@
 .phoneTake {
   border-radius: 5px;
-  width: 30%;
+  width: 12em !important;
 }
 .phoneBuy {
   border-radius: 5px;
-  width: 30%;
+  width: 12em;
+}
+
+.section1 {
+  display: flex;
+  justify-content: start;
+
+  padding: 0;
+}
+.customerName {
+  width: 12em;
+  margin-right: 3rem;
+}
+
+.section2 {
+  display: flex;
+  justify-content: start;
+  padding: 0;
+}
+.driver {
+  width: 12em;
 }
 .carNumber {
   border-radius: 5px;
-  width: 30%;
+  margin-left: 5rem;
 }
-.selectCustomer {
+
+.section3 {
   display: flex;
-  justify-content: center;
-  border-radius: 5px;
-  width: 40%;
-}
-.productName {
-  border-radius: 5px;
-  width: 30%;
+  justify-content: start;
+  gap: 2em;
 }
 .status {
   border-radius: 5px;
-  width: 30% !important;
+  width: 6em;
+}
+.statusName {
+  margin-left: 1em;
+}
+.productName {
+  border-radius: 5px;
+}
+
+.section4 {
+  display: flex;
+  justify-content: start;
+  gap: 2em;
+  align-items: baseline;
+}
+.carWeightLabel {
+  margin-left: 5em;
+}
+.section5 {
+  display: flex;
+  justify-content: start;
+  gap: 2em;
 }

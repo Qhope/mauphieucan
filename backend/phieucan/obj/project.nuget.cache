@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "md+6XwD6hZIb5uw2/o4S9cn+xlul8DE7Jffo19TNB7py17IFs5L6rk3QlxP8l+ajKn+JvFezjOPqwA0291/CDg==",
+  "dgSpecHash": "+KvrgD3+C5sDkpqkEOlJa8edEWEZgBJl9YOql1nl4Ms8K7y86zWFCoB3KcwELlUt9hPbDMGz00zYoojMjkMnuw==",
   "success": true,
   "projectFilePath": "D:\\Qhope\\LEARN\\ReacJs\\mauphieucan\\backend\\phieucan\\phieucan.csproj",
   "expectedPackageFiles": [
@@ -134,7 +134,7 @@
     "C:\\Users\\vuqua\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\vuqua\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\vuqua\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\vuqua\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.9\\microsoft.netcore.app.host.win-x64.5.0.9.nupkg.sha512"
+    "C:\\Users\\vuqua\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.11\\microsoft.netcore.app.host.win-x64.5.0.11.nupkg.sha512"
   ],
   "logs": []
 }

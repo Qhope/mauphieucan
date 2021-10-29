@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using phieucan.Models;
 
 namespace phieucan.Migrations
 {
     [DbContext(typeof(CustomerDbContext))]
-    partial class CustomerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211026024811_addPhone")]
+    partial class addPhone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,26 +28,14 @@ namespace phieucan.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,3)");
-
                     b.Property<string>("CarNumber")
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<decimal>("CarWeight")
-                        .HasColumnType("decimal(18,3)");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime");
-
-                    b.Property<string>("Driver")
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<decimal>("GoodsWeight")
-                        .HasColumnType("decimal(18,3)");
 
                     b.Property<string>("PhoneBuy")
                         .HasColumnType("varchar(15)");
@@ -59,11 +49,8 @@ namespace phieucan.Migrations
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<bool>("Status")
+                    b.Property<bool>("status")
                         .HasColumnType("bit");
-
-                    b.Property<decimal>("TotalWeight")
-                        .HasColumnType("decimal(18,3)");
 
                     b.HasKey("Id");
 

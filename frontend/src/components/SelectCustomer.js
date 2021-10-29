@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect, useEffect } from "react";
-import { Select } from "antd";
+import { Select, AutoComplete } from "antd";
 import { render } from "@testing-library/react";
 
 const { Option } = Select;
@@ -9,11 +9,11 @@ const SelectCustomer = (props) => {
 
   useEffect(() => {
     setData(props.data);
-    console.log("hook");
+    console.log("hook", props.data);
   }, [props.data]);
 
   const handleChange = (event) => {
-    //console.log(event);
+    //console.log("event", event);
     const id = props.handleCustomer(event);
   };
   return (
@@ -22,14 +22,22 @@ const SelectCustomer = (props) => {
       showSearch
       value={data.id}
       placeholder="Select Customer"
-      defaultActiveFirstOption={false}
+      optionFilterProp="children"
       showArrow={false}
-      filterOption={false}
+      filterOption={(inputValue, data) => {
+        //console.log("input", inputValue);
+        //console.log("data", data.children);
+        return (
+          data.children.toLowerCase().indexOf(inputValue.toLowerCase()) >= 0
+        );
+      }}
       onChange={handleChange}
       notFoundContent={null}
     >
       {data.map((d) => (
-        <Option key={d.id}>{d.CustomerName}</Option>
+        <Option key={d.id} value={d.id}>
+          {d.CustomerName}
+        </Option>
       ))}
     </Select>
   );

@@ -10,5 +10,7 @@ namespace phieucan.Models
 
         [Column(TypeName ="nvarchar(100)")]
         public string CustomerName {  get; set; }
+        [Column(TypeName = "varchar(15)")]
+        public string PhoneNumber { get; set; }
     }
 }

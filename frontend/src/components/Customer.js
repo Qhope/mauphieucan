@@ -1,8 +1,7 @@
 import "../css/Customer.css";
 import React, { useState, useEffect } from "react";
 import { createAPIEndpoint, ENDPOINTS } from "../api/CustomerAPI";
-import { Table, Button, Form, Input } from "antd";
-import WeidghtBill from "./Form";
+import { Table, Modal, Form, Input } from "antd";
 import DeleteCustomer from "./DeleteCustomer";
 import EditCustomer from "./EditCustomer";
 const { Column } = Table;
@@ -11,7 +10,19 @@ const { Column } = Table;
 const Customer = () => {
   const [customers, setCustomers] = useState([]);
   const [effect, setEffect] = useState(true);
-
+  const [isAddModalVisible, setIsAddModalVisible] = useState(false);
+  const [form] = Form.useForm();
+  const showModal = () => {
+    setIsAddModalVisible(true);
+  };
+  const handleOk = (values) => {
+    setIsAddModalVisible(false);
+    console.log("value", values);
+    sendCustomer(values);
+  };
+  const handleCancel = () => {
+    setIsAddModalVisible(false);
+  };
   useEffect(() => {
     createAPIEndpoint(ENDPOINTS.CUSTOMER)
       .fetchAll()
@@ -19,15 +30,19 @@ const Customer = () => {
         let customers = res.data.map((item) => ({
           id: item.customerId,
           CustomerName: item.customerName,
+          PhoneNumber: item.phoneNumber,
         }));
         //console.log(customers);
         setCustomers(customers);
       });
   }, [effect]);
 
-  const onFinish = (e) => {
-    console.log(e.addCustomer);
-    const payload = { customerName: e.addCustomer };
+  const sendCustomer = (e) => {
+    console.log("e", e);
+    const payload = {
+      customerName: e.customerName,
+      phoneNumber: e.phoneNumber,
+    };
     createAPIEndpoint(ENDPOINTS.CUSTOMER)
       .create(payload)
       .catch((error) => {
@@ -70,14 +85,44 @@ const Customer = () => {
   };
   return (
     <div>
-      <Form onFinish={onFinish} className="addCustomer">
-        <Form.Item name="addCustomer" label="Add Customer">
-          <Input />
-        </Form.Item>
-        <Button type="add" htmlType="submit">
-          Add
-        </Button>
-      </Form>
+      <div>
+        <div className="addCustomer">
+          <span></span>
+          <button className="addButton" onClick={showModal}>
+            Add
+          </button>
+        </div>
+        <Modal
+          title="Add your User"
+          visible={isAddModalVisible}
+          onOk={() => {
+            form.validateFields().then((values) => {
+              form.resetFields();
+              handleOk(values);
+            });
+          }}
+          onCancel={handleCancel}
+        >
+          <Form form={form} layout="vertical" name="add_user">
+            <Form.Item
+              name="customerName"
+              label="Enter your user name"
+              rules={[{ required: true, message: "Please enter user name!" }]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              name="phoneNumber"
+              label="Enter your user phone number"
+              rules={[
+                { required: true, message: "Please enter phone number!" },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+          </Form>
+        </Modal>
+      </div>
       <Table
         dataSource={customers}
         pagination={{ pageSize: 50 }}
@@ -88,6 +133,11 @@ const Customer = () => {
           title="Customer Name"
           dataIndex="CustomerName"
           key="CustomerName"
+        />
+        <Column
+          title="Phone Number"
+          dataIndex="PhoneNumber"
+          key="PhoneNumber"
         />
         <Column
           title="Action"
